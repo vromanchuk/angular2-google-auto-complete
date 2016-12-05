@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { GoogleMapsLoaderSingleton } from "../entity/google-maps-loader-singelton";
+import Autocomplete = google.maps.places.Autocomplete;
 
 @Component({
   selector: 'app-auto-complete',
@@ -7,11 +9,22 @@ import { Component, OnInit } from "@angular/core";
 })
 export class AutoCompleteComponent implements OnInit {
 
-  constructor() {
+  // autoCompleteObj: Autocomplete;
+  inputField: HTMLInputElement;
 
+  constructor() {
+    // this.inputField = new HTMLInputElement();
+    GoogleMapsLoaderSingleton.instance.load(this.autoCompleteGenerate);
   }
 
   ngOnInit() {
+
+  }
+
+  public autoCompleteGenerate(){
+    // this.autoCompleteObj = new Autocomplete(this.inputField);
+    // console.log(google);
+    console.log('hello')
   }
 
 }

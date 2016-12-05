@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { AutoCompleteComponent } from './auto-complete.component';
-import { APILoader } from "../entity/apiloader";
-import { AutocompleteService } from "./service/autocomplete.service";
+///<reference path="../../../node_modules/@types/google-maps/index.d.ts"/>
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { AutoCompleteComponent } from "./auto-complete.component";
+import { AutoCompleteService } from "./service/auto-complete.service";
+import { GoogleMapsLoaderSingleton } from "../entity/google-maps-loader-singelton";
 
 /** AutoCompleteModule
  *  Use setProjectAPI method to include this module
@@ -14,14 +15,15 @@ import { AutocompleteService } from "./service/autocomplete.service";
     CommonModule
   ],
   declarations: [AutoCompleteComponent],
-  providers: [AutocompleteService,APILoader]
+  providers: [AutoCompleteService],
+  exports:[AutoCompleteComponent]
 })
 export class AutoCompleteModule {
   static setProjectAPI(apiKey: string){
-    APILoader.apiKey=apiKey;
+    GoogleMapsLoaderSingleton.instance.KEY=apiKey;
     return {
       ngModule : AutoCompleteModule,
-      providers: [AutocompleteService]
+      providers: [AutoCompleteService],
     }
   }
 }

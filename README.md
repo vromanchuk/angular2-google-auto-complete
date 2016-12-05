@@ -29,3 +29,23 @@ Run `ng github-pages:deploy` to deploy to Github Pages.
 ## Further help
 
 To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+## Typings
+
+https://github.com/typings/typings
+
+include "typings":"2.0.0" into package.json 
+
+//optional
+sudo npm install typings --global
+
+https://github.com/DefinitelyTyped/DefinitelyTyped
+npm install --save-dev @types/node
+
+npm install --save @types/google-maps
+
+Check if works. Folder typings should be created after that command
+typings install debug --save
+
+
